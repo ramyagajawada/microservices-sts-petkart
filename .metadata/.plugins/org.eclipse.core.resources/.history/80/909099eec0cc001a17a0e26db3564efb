@@ -1,0 +1,15 @@
+package com.cts.demo.pojo;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="admin_table")
+
+public class Admin {
+	@Id
+    private String adminId;
+	private String adminName;
+	private String adminPwd;
+}

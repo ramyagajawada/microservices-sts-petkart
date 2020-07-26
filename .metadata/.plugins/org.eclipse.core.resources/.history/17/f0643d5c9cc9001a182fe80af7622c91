@@ -1,0 +1,58 @@
+package com.service;
+
+
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pojo.Pet;
+import com.controller.PetController;
+
+
+@Service
+public class PetService  {
+	
+	
+	
+	@Autowired
+	private PetController petcontroller;
+	
+	public Iterable<Pet> findAllColleges() {
+		return petcontroller.findAll();
+	}
+	
+	public Pet savePet( Pet pet) {
+		return petcontroller.save(pet);
+	}
+	
+	public Boolean deletePet(String petId) {
+		Optional<Pet> pet = petcontroller.findById(petId);
+		petcontroller.delete(pet.get());
+		return true;
+	}
+	
+	public Optional<Pet> findPetById(String petId)
+	{
+		Optional<Pet> pet = petcontroller.findById(petId);
+		return Optional.ofNullable(pet.get());
+	}
+
+	
+	
+	/*
+	 * public Optional<College> getCollege(Integer collegeid) {
+	 * 
+	 * return collegerepository.findById(petId);
+	 * 
+	 * }
+	 */
+	
+	
+	public String getpetName(Integer petId) {
+		Optional<Pet> pet=petcontroller.findById(petId);
+		Pet p=pet.get();
+		return  p.getpetName();
+	}
+}

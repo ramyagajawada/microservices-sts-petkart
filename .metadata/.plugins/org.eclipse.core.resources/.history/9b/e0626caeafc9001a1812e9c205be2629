@@ -1,0 +1,75 @@
+package com.service;
+
+
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pojo.Pet;
+import com.dao.PetRepository;
+import com.feing.UserFeign;
+import com.petbo.PetBo;
+
+
+@Service
+public class PetService  {
+	
+	
+	
+	@Autowired
+	private PetRepository PetRepository;
+	
+	public Iterable<Pet> findAllColleges() {
+		return PetRepository.findAll();
+	}
+	
+	public Pet savePet( Pet pet) {
+		return PetRepository.save(pet);
+	}
+	
+	public Boolean deletePet(String petId) {
+		Optional<Pet> pet = PetRepository.findById(petId);
+		PetRepository.delete(pet.get());
+		return true;
+	}
+	
+	public Optional<Pet> findPetById(String petId)
+	{
+		Optional<Pet> pet = PetRepository.findById(petId);
+		return Optional.ofNullable(pet.get());
+	}
+
+	
+	
+	/*
+	 * public Optional<College> getCollege(Integer petId) {
+	 * 
+	 * return collegerepository.findById(petId);
+	 * 
+	 * }
+	 */
+	
+	
+	public String getpetName(String petId) {
+		Optional<Pet> pet=PetRepository.findById(petId);
+		Pet p=pet.get();
+		return  p.getPetName();
+	}
+
+	public PetBo findOneInAll3(String petId) {
+		Optional<Pet> pet = PetRepository.findById(petId);
+		Pet p = pet.get();
+
+		PetBo bo = new PetBo();
+
+		bo.setPetName(p.getPetName());
+		bo.setPetId(p.getPetId());
+		bo.setPetType(p.getPetType());
+		bo.setPetPrice(p.getPetPrice());
+		bo.setPetDescription(p.getPetDescription());
+		bo.setuserName(UserFeign.getuserName(p.getUserId()));
+		return bo;
+	}
+}

@@ -1,0 +1,83 @@
+package com.cts.demo;
+
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.cts.demo.controller.AdminController;
+import com.cts.demo.repo.AdminRepository;
+import com.cts.demo.pojo.Admin;
+
+@SpringBootTest
+@ExtendWith(value = SpringExtension.class)
+
+
+class BuyerApplicationTests {
+
+	@Autowired
+	private AdminRepository adminRepo;
+	@Autowired
+	private AdminController adminController;
+
+	@BeforeEach
+	public void setUp() {
+		Admin admin = new Admin();
+		admin.setAdminId("1");
+		admin.setAdminName("ramya");
+		admin.setAdminPwd("52344");
+		
+		adminRepo.save(admin);
+	}
+
+	@AfterEach
+	public void cleanUp() {
+		adminRepo.deleteAll();
+	}
+
+	@Test
+	
+	void shouldSaveUser() {
+		// arrange
+		Admin admin = new Admin();
+		admin.setAdminId("12");
+		admin.setAdminName("ramya1");
+		admin.setAdminPwd("523442");
+		
+
+//act
+		Admin savedAdmin = adminController.saveAdmin(admin);
+		// assert
+		
+		Assertions.assertThat(savedAdmin.getAdminId()).isEqualTo(admin.getAdminId());
+		Assertions.assertThat(savedAdmin.getAdminName()).isEqualTo(admin.getAdminName());
+		Assertions.assertThat(savedAdmin.getAdminPwd()).isEqualTo(admin.getAdminPwd());
+	}
+
+	
+
+	@Test
+	void shouldDeleteAdmin() {
+		// arrange
+		// act
+		boolean deletedAdmin = adminController.deleteUser("12");
+		// assert
+		Assertions.assertThat(deletedAdmin).isTrue();
+		Assertions.assertThat(adminRepo.findAll()).hasSize(0);
+
+	}
+	@Test
+	void shouldRetriveAdmin() {
+		//act
+		Admin foundAdmin=adminController.findOneInAll("12");
+		//assert
+		Assertions.assertThat(foundAdmin).isNotNull();
+		
+	}
+
+
+}

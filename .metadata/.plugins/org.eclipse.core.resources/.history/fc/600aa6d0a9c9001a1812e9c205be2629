@@ -1,0 +1,5 @@
+package com.feing;
+
+public interface UserFeing {
+
+}

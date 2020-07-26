@@ -1,0 +1,5 @@
+package com.cts.demo.config;
+
+public class SpringSecurityConfig {
+
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PutMapping"/>
+<fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.EnableEurekaClient"/>
+<fullyQualifiedTypeName name="lombok.Value"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+<fullyQualifiedTypeName name="org.springframework.boot.context.properties.ConfigurationProperties"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Value"/>
+<fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.EnableWebSecurity"/>
+<fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter"/>
+<fullyQualifiedTypeName name="org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder"/>
+<fullyQualifiedTypeName name="org.springframework.security.config.annotation.web.builders.HttpSecurity"/>
+<fullyQualifiedTypeName name="com.userbo.UserBo"/>
+<fullyQualifiedTypeName name="com.feign.PetFeign"/>
+<fullyQualifiedTypeName name="lombok.Getter"/>
+<fullyQualifiedTypeName name="lombok.Setter"/>
+<fullyQualifiedTypeName name="lombok.ToString"/>
+<fullyQualifiedTypeName name="com.service.PetService"/>
+<fullyQualifiedTypeName name="com.petbo.PetBo"/>
+<fullyQualifiedTypeName name="com.feing.UserFeign"/>
+<fullyQualifiedTypeName name="org.springframework.cloud.openfeign.EnableFeignClients"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.extension.ExtendWith"/>
+<fullyQualifiedTypeName name="org.springframework.test.context.junit.jupiter.SpringExtension"/>
+<fullyQualifiedTypeName name="com.dao.UserRepository"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeEach"/>
+<fullyQualifiedTypeName name="com.pojos.User"/>
+<fullyQualifiedTypeName name="org.junit.jupiter.api.AfterEach"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.controller.UserController"/>
+<fullyQualifiedTypeName name="com.netflix.infix.lang.infix.antlr.EventFilterParser.boolean_expr_return"/>
+<fullyQualifiedTypeName name="org.assertj.core.api.Assertions"/>
+</qualifiedTypeNameHistroy>

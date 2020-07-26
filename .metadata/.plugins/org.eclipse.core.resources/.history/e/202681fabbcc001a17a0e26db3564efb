@@ -1,0 +1,9 @@
+
+#Zuul routes. Here for /student path, we are routing to localhost:8090 with extra path after that.
+zuul.routes.pet.url=http://localhost:8894
+zuul.routes.user.url=http://localhost:8896
+zuul.routes.seller.url=http://localhost:8899
+#Riban is auto integrated with Zuul and for this exercise we are not using that.
+ribbon.eureka.enabled=false
+#Will start the gateway server @8080
+server.port=8082

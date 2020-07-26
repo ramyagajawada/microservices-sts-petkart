@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.config.Configuration&apos; to &apos;PetConfiguration&apos;&#x0D;&#x0A;- Original project: &apos;pet&apos;&#x0D;&#x0A;- Original element: &apos;com.config.Configuration&apos;&#x0D;&#x0A;- Renamed element: &apos;com.config.PetConfiguration&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Rename similarly named elements&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Configuration&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.config{Configuration.java[Configuration" matchStrategy="1" name="PetConfiguration" qualified="false" references="true" similarDeclarations="true" stamp="1595071767713" textual="false" version="1.0"/>
+</session>

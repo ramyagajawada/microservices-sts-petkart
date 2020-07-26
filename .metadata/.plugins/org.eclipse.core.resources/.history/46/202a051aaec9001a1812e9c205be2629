@@ -1,0 +1,58 @@
+package com.service;
+
+
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pojos.User;
+import com.dao.UserRepository;
+
+
+@Service
+public class UserService  {
+	
+	
+	
+	@Autowired
+	private UserRepository userrepository;
+	
+	public Iterable<User>findAllUser() {
+		return userrepository.findAll();
+	}
+	
+	public User saveUser( User user) {
+		return userrepository.save(User);
+	}
+	
+	public Boolean deleteUser(String userId) {
+		Optional<User> User = userrepository.findById(userId);
+		userrepository.delete(User.get());
+		return true;
+	}
+	
+	public Optional<User> findCollegeById(String userId)
+	{
+		Optional<User> User = userrepository.findById(userId);
+		return Optional.ofNullable(User.get());
+	}
+
+	
+	
+	/*
+	 * public Optional<College> getCollege(Integer collegeid) {
+	 * 
+	 * return collegerepository.findById(collegeid);
+	 * 
+	 * }
+	 */
+	
+	
+	public String getCollegename(Integer collegeid) {
+		Optional<College> college=collegerepository.findById(collegeid);
+		College coll=college.get();
+		return  coll.getCollegename();
+	}
+}

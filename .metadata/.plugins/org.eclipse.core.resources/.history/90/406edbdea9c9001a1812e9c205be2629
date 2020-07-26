@@ -1,0 +1,14 @@
+package com.feing;
+
+
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
+@FeignClient(value = "usere-data", url = "http://localhost:8097/User")
+public interface UserFeign {
+	@GetMapping("/userId/{userId}")
+	public String getuserName(@PathVariable(value = "userId") String userId);
+}
