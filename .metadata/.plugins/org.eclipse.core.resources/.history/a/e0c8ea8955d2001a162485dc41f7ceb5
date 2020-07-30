@@ -1,0 +1,10 @@
+package com.javainuse.model;
+
+import javax.persistence.Id;
+
+public class Admin {
+	@Id
+    private String adminId;
+	private String adminName;
+	private String adminPwd;
+}

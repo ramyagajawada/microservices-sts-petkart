@@ -1,0 +1,159 @@
+package com.javainuse.controller;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
+import org.springframework.web.bind.annotation.PostMapping;
+
+import org.springframework.web.bind.annotation.PutMapping;
+
+import org.springframework.web.bind.annotation.RequestBody;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+
+
+
+
+import com.javainuse.dao.GuitarRepository;
+
+import com.javainuse.model.Guitar;
+
+import org.slf4j.Logger;
+
+import org.slf4j.LoggerFactory;
+
+
+
+@RestController
+
+@RequestMapping("/guitar")
+
+
+
+public class GuitarController {
+
+ @Autowired
+
+ private GuitarRepository guitarRep;
+
+
+
+ Logger log= LoggerFactory.getLogger(GuitarController.class);
+
+
+
+ @RequestMapping("/getGuitars")
+
+ public Iterable<Guitar> getGuitars()
+
+
+
+ { log.info("Request for all guitar details");
+
+ return guitarRep.findAll();
+
+ }
+
+
+
+ @PutMapping("/updateGuitar/{productid}")
+
+ public Guitar updateGuitar(@RequestBody Guitar guitar,@PathVariable("productid") String productid)
+
+ {
+
+ log.info("Request for updating Guitar: " + productid);
+
+ guitar.setProductid(productid);
+
+ System.out.println(guitar);
+
+ guitarRep.save(guitar);
+
+ return guitar;
+
+ }
+
+
+
+ @PostMapping("/saveGuitar")
+
+ public Guitar saveGuitar(@RequestBody Guitar guitar)
+
+ {
+
+ System.out.println(guitar);
+
+ guitarRep.save(guitar);
+
+ return guitar;
+
+ }
+
+
+
+ @DeleteMapping("/deleteGuitar/{productid}")
+
+ public boolean deleteGuitar(@PathVariable("productid") String productid)
+
+ {
+
+ log.info("Request for deleting Admin : " + productid);
+
+ System.out.println(productid);
+
+ Optional<Guitar> guitar = guitarRep.findById(productid);
+
+ if(guitar==null) {
+
+
+
+  throw new RuntimeException("Guitar not found");
+
+
+
+  }
+
+ guitarRep.deleteById(productid);
+
+ return true;
+
+ }
+
+
+
+ @GetMapping("/findGuitar/{productid}")
+
+ public Guitar findGuitar(@PathVariable("productid") String productid)
+
+ {
+
+ log.info("Request recieved for finding Admin: " + productid);
+
+ Optional<Guitar> guitar= guitarRep.findById(productid);
+
+ return guitar.get();
+
+ }
+
+
+
+ 
+
+
+
+ 
+
+
+
+}

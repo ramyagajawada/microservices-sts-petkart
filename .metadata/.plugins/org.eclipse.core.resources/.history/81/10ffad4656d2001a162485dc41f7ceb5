@@ -1,0 +1,7 @@
+package com.javainuse.dao;
+
+
+
+public interface UserRepository {
+	Iterable<User> findAll();
+}

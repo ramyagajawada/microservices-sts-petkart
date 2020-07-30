@@ -1,0 +1,13 @@
+package com.javainuse.dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.javainuse.model.Guitar;
+
+
+
+public interface GuitarRepository extends CrudRepository<Guitar,String> {
+
+ Iterable<Guitar> findAll();
+
+}

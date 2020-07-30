@@ -1,0 +1,36 @@
+package com.javainuse.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "userj")
+public class DAOUsers {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long ids;
+	@Column
+	private String usernames;
+	@Column
+	@JsonIgnore
+	private String passwords;
+
+	public String getUsernames() {
+		return usernames;
+	}
+
+	public void setUsernames(String username) {
+		this.usernames = username;
+	}
+
+	public String getPasswords() {
+		return passwords;
+	}
+
+	public void setPasswords(String password) {
+		this.passwords = password;
+	}
+
+}

@@ -1,0 +1,74 @@
+package com.javainuse.controller;
+
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+
+public class AdminController {
+	Logger log = LoggerFactory.getLogger(AdminController.class);
+	@Autowired
+
+	private AdminRepository adminRepository;
+
+	@GetMapping("/getAlladmin")
+
+	public Iterable<Admin> getAlladmin() {
+		 log.info("Request for all admin details");
+
+		return adminRepository.findAll();
+
+	}
+
+	@PostMapping("/saveadmin")
+
+	public Admin saveAdmin(@RequestBody Admin admin) {
+
+		System.out.println(admin);
+
+		adminRepository.save(admin);
+
+		return admin;
+
+	}
+
+	@DeleteMapping("/deleteadmin/{adminId}")
+
+	public Boolean deleteAdmin(@PathVariable("adminId") String adminId) {
+		log.info("Request for deleting : " + adminId);
+		System.out.println(adminId);
+		Optional<Admin> admin = adminRepository.findById(adminId);
+
+		if (admin == null) {
+
+			throw new RuntimeException("No value present");
+
+		}
+
+		adminRepository.delete(admin.get());
+		
+		return true;
+
+	}
+
+	@GetMapping("/findOneInAll/{adminId}")
+
+	public Admin findoneinall(@PathVariable("adminId") String adminId) {
+		log.info("Request recieved for: " + adminId);
+		Optional<Admin> admin = adminRepository.findById(adminId);
+		
+
+		
+		return admin.get();
+
+	}
+
+}

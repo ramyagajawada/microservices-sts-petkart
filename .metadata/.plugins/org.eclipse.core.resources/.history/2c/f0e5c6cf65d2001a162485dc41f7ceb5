@@ -1,0 +1,5 @@
+package com.javainuse.dao;
+
+public interface GuitarRepository {
+
+}
