@@ -1,6 +1,0 @@
-jwt.secret=javainuse
-spring.datasource.url=jdbc:mysql://localhost/bootdba?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
-spring.datasource.username=root
-spring.datasource.password=root@923
-spring.datasource.platform=mysql
-spring.jpa.hibernate.ddl-auto=create-drop

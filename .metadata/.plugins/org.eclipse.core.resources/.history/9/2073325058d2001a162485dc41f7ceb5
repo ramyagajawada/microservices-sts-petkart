@@ -1,7 +1,0 @@
-package com.javainuse.dao;
-
-import com.javainuse.model.User;
-
-public interface UserRepository {
-	Iterable<User> findAll();
-}

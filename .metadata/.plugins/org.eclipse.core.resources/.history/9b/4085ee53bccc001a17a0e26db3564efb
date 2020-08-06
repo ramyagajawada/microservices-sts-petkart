@@ -1,7 +1,0 @@
-
-spring.jpa.hibernate.ddl-auto=update
-spring.datasource.url=jdbc:mysql://localhost:3306/Buyer
-spring.datasource.username=root
-spring.datasource.password=root@923
-server.port=8012
-spring.application.name=Buyer

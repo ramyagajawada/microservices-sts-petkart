@@ -1,7 +1,0 @@
-package com.javainuse.dao;
-
-
-
-public interface AdminRepository {
-	Iterable<Admin> findAll();
-}

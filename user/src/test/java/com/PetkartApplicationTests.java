@@ -20,7 +20,7 @@ class PetkartApplicationTests {
 	private UserRepository userRepo;
 	@Autowired
 	private UserController userController;
-
+	boolean run=true;
 	@BeforeEach
 	public void setUp() {
 		User user = new User();
@@ -35,7 +35,12 @@ class PetkartApplicationTests {
 
 	@AfterEach
 	public void cleanUp() {
-		userRepo.deleteAll();
+		if(run==false)
+
+			  return;
+		
+		
+		userRepo.deleteById("12");
 	}
 
 	@Test
@@ -81,6 +86,7 @@ class PetkartApplicationTests {
 	void shouldDeleteUser() {
 		// arrange
 		// act
+		run=false;
 		boolean deletedUser = userController.deleteUser("12");
 		// assert
 		Assertions.assertThat(deletedUser).isTrue();
