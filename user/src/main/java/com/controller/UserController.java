@@ -15,22 +15,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
-
-
 import com.dao.UserRepository;
-
 import com.feign.PetFeign;
-
 import com.pojos.User;
 import com.userbo.UserBo;
-
-
-
-
 
 @RestController
 

@@ -50,4 +50,5 @@
 <fullyQualifiedTypeName name="com.javainuse.model.Pet"/>
 <fullyQualifiedTypeName name="net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="com.dao.PickUpRepository"/>
 </qualifiedTypeNameHistroy>
